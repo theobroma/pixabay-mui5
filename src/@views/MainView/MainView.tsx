@@ -1,6 +1,7 @@
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { useEffect, useState } from 'react';
+import ImageGallery from '../../@components/ImageGallery';
 import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
 import { useGetPicturesQuery } from '../../@store/pictures/api';
 import { HitsEntityType } from '../../@types';
@@ -19,9 +20,9 @@ const MainView = () => {
     },
   );
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   // const {
   //   data: { coins },
@@ -34,11 +35,8 @@ const MainView = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          MainView
-        </Grid>
-      </Box>
+      <Box sx={{ flexGrow: 1 }}>MainView</Box>
+      <ImageGallery hits={data?.hits} />
     </Container>
   );
 };
