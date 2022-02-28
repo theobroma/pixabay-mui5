@@ -12,7 +12,7 @@ interface Props {
 }
 
 const ImageGallery = ({ hits = [] }: Props) => {
-  console.log(hits);
+  // console.log(hits);
   return (
     <ImageList
     //  sx={{ width: 500, height: 450 }}
