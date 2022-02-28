@@ -1,8 +1,9 @@
-# Cryptoverse - Explore the World of Cryptocurrency
+# PixaBay Image Finder
 
-##### React & Material UI application.
+##### React & Material UI v5 app to find images utilizing the PixaBay API
 
-Powered by [Coinranking API](https://rapidapi.com/Coinranking/api/coinranking1/).
+Register your API Key at
+[https://pixabay.com/](https://pixabay.com/)
 
 ## Quick Start
 
