@@ -2,6 +2,7 @@
 import { combineReducers, configureStore, Reducer } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { createLogger } from 'redux-logger';
+import { picturesApi } from './pictures/api';
 import { uiReducer, uiSlice } from './ui/slice';
 // import { RESET_STATE_ACTION_TYPE } from './actions/resetState';
 
@@ -14,6 +15,7 @@ const reducers = {
   //   [pokemonApi.reducerPath]: pokemonApi.reducer,
   // [coinsSlice.name]: coinsReducer,
   // [cryptoApi.reducerPath]: cryptoApi.reducer,
+  [picturesApi.reducerPath]: picturesApi.reducer,
   [uiSlice.name]: uiReducer,
 };
 
@@ -29,7 +31,8 @@ export const rootReducer: Reducer<RootState> = (state, action) => {
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger]),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([logger, picturesApi.middleware]),
   // devTools: process.env.NODE_ENV === 'development',
   devTools: true,
 });
