@@ -1,15 +1,28 @@
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
-import { nanoid } from '@reduxjs/toolkit';
-import React, { useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import AppCard from '../../@components/AppCard';
-import AppCardSkeleton from '../../@components/AppCard/AppCardSkeleton';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
-import { ICurrency } from '../../@types';
+import { useGetPicturesQuery } from '../../@store/pictures/api';
+import { HitsEntityType } from '../../@types';
 
-const MainView: React.FC = () => {
+const MainView = () => {
   const dispatch = useAppDispatch();
+
+  const [noMoreResults, setNoMoreResults] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hits, setHits] = useState<HitsEntityType[]>([]);
+
+  const { data, error, isLoading, isFetching, isError } = useGetPicturesQuery(
+    page,
+    {
+      skip: noMoreResults,
+    },
+  );
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   // const {
   //   data: { coins },
   //   isFetching,
