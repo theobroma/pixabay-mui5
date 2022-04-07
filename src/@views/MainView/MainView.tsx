@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/67909356/is-there-any-way-to-fetch-all-the-responses-stored-in-api-slice-rtk-query
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { useEffect, useState, useMemo } from 'react';
@@ -36,6 +37,10 @@ const MainView = () => {
   const lastResultHits = lastResult.data?.hits;
   const currentResultHits = currentResult.data?.hits;
   const nextResultHits = nextResult.data?.hits;
+
+  // console.log('lastResultHits', lastResultHits);
+  // console.log('currentResultHits', currentResultHits);
+  // console.log('nextResultHits', nextResultHits);
 
   // const combined = [].concat(lastResultHits, currentResultHits, nextResultHits);
 
