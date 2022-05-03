@@ -2,7 +2,6 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 
@@ -15,11 +14,10 @@ const ImageGallery = ({ hits = [] }: Props) => {
   // console.log(hits);
   return (
     <ImageList
-    //  sx={{ width: 500, height: 450 }}
+      //  sx={{ width: 500, height: 450 }}
+      cols={5}
+      rowHeight={164}
     >
-      <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
-      </ImageListItem>
       {hits.map((item: any) => (
         <ImageListItem key={item.id}>
           <img
