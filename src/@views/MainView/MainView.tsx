@@ -2,6 +2,7 @@
 import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import ImageGallery from '../../@components/ImageGallery';
 import { useAppDispatch } from '../../@store/configureStore';
 import { useGetPicturesQuery } from '../../@store/pictures/api';
@@ -22,10 +23,25 @@ const MainView = () => {
     totalHits,
   );
 
+  const getMorePhotos = async () => {
+    //   page++;
+    //   const response = await getPhotos(page);
+    //   setItems(items.concat(response.data.hits));
+    //   setTotalHits(response.data.totalHits);
+    //   setInitialized(true);
+  };
+
   return (
     <Container maxWidth="lg">
       <Box sx={{ flexGrow: 1 }}>MainView</Box>
-      <ImageGallery hits={currentResultHits} />
+      <InfiniteScroll
+        pageStart={page}
+        loadMore={getMorePhotos}
+        // hasMore={totalHits > items.length}
+        // threshold={100}
+      >
+        <ImageGallery hits={currentResultHits} />
+      </InfiniteScroll>
     </Container>
   );
 };
