@@ -14,7 +14,7 @@ const picturesInitialState = {
   pictureSearch: 'nature',
 };
 
-export const picturesTC = createAsyncThunk<
+export const getPicturesTC = createAsyncThunk<
   PicturesDataResponseType,
   { pictureSearch: string; page: number },
   any
@@ -48,7 +48,7 @@ export const picturesSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(picturesTC.fulfilled, (state, action) => {
+    builder.addCase(getPicturesTC.fulfilled, (state, action) => {
       if (action.payload) {
         // state.data = action.payload.data;
         state.data.total = action.payload.total;
